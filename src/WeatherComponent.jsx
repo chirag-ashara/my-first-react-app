@@ -174,6 +174,8 @@ function WeatherComponent({ addDataToRecent,cityName }) {
           });
   },1000)
         }else{
+          setLoading(true);
+          setTimeout(() => {
           axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${searchData.latitude}&lon=${searchData.longitude}&appid=487fff9fdf1e0d5856fc94efd361d67a`)
           .then(response => {
 
@@ -185,13 +187,15 @@ function WeatherComponent({ addDataToRecent,cityName }) {
               weatherData: response.data.main,
               weather: response.data.weather,
               sys: response.data.sys,
-              name: response.name
+              name: response.data.name
             }));
-
+            setLoading(false)
+            addDataToRecent(response.data.name)
           })
           .catch(error => {
             console.error(error);
           });
+        },1000);
         }
   }
 
