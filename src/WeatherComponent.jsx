@@ -140,13 +140,16 @@ function WeatherComponent({ addDataToRecent,cityName }) {
         if (searchData.city) {
           if (!isCityValid(searchData.city)) {
               toast.error("Please enter a valid city name.");
+              return;
           }
         } else if (searchData.latitude && searchData.longitude) {
             if (!isLatitudeValid(searchData.latitude) && !isLongitudeValid(searchData.longitude)) {
                 toast.error("Please enter valid Latitude or Longitude.");
+                return;
             }
         } else {
             toast.error("Please enter either a valid city or Latitude/Longitude.");
+            return;
           }
 
         if(searchData.city != ''){
