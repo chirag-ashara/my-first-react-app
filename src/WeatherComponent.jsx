@@ -28,7 +28,7 @@ function WeatherComponent({ addDataToRecent,cityName }) {
     const searchPastData = (cityName) => {
         setLoading(true);
 
-        axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=487fff9fdf1e0d5856fc94efd361d67a`)
+        axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid={}`)
           .then(response => {
             setLocation(prevState => ({
               ...prevState,
@@ -88,7 +88,7 @@ function WeatherComponent({ addDataToRecent,cityName }) {
           var longitude = position.coords.longitude;
           setLoading(true);
           setTimeout(() => {
-          axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=487fff9fdf1e0d5856fc94efd361d67a`)
+          axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid={}`)
           .then(response => {
 
             setLocation(prevState => ({
@@ -152,7 +152,7 @@ function WeatherComponent({ addDataToRecent,cityName }) {
         if(searchData.city != ''){
           setLoading(true);
           setTimeout(() => {
-          axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${searchData.city}&appid=487fff9fdf1e0d5856fc94efd361d67a`)
+          axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${searchData.city}&appid={}`)
           .then(response => {
 
           setLocation(prevState => ({
@@ -176,7 +176,7 @@ function WeatherComponent({ addDataToRecent,cityName }) {
         }else{
           setLoading(true);
           setTimeout(() => {
-          axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${searchData.latitude}&lon=${searchData.longitude}&appid=487fff9fdf1e0d5856fc94efd361d67a`)
+          axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${searchData.latitude}&lon=${searchData.longitude}&appid={}`)
           .then(response => {
 
           setLocation(prevState => ({
